@@ -1,18 +1,6 @@
 describe("GameOfLife", function()
 
-    local liveCell = {
-        next = function(neighborsCount)
-            if neighborsCount < 2 then
-            return {
-                type = "DEAD"
-            }
-            else
-                return {
-                    type = "LIVE"
-                }
-            end
-        end
-    }
+    local liveCell = require("scripts.LiveCell")
 
     it("Any live cell with fewer than two live neighbours dies, as if caused by under-population.", function()
         local nextCell = liveCell.next(1)
@@ -22,5 +10,10 @@ describe("GameOfLife", function()
     it("Any live cell with two or three live neighbours lives on to the next generation.", function()
         local nextCell = liveCell.next(2)
         assert.are.equal("LIVE", nextCell.type)
+    end)
+
+    it("Any live cell with more than three live neighbours dies, as if by overcrowding.", function()
+        local nextCell = liveCell.next(4)
+        assert.are.equal("DEAD", nextCell.type)
     end)
 end)
