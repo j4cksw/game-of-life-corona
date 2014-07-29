@@ -1,6 +1,15 @@
-local LiveCell = {}
+local LiveCell = {
+    type = "LIVE"
+}
 
-LiveCell.next = function(neighborsCount)
+function LiveCell:new()
+    o = {}
+   setmetatable(o, self)
+   self.__index = self
+   return o
+end
+
+function LiveCell:next(neighborsCount)
     if neighborsCount < 2 then
         return {
             type = "DEAD"
@@ -10,9 +19,7 @@ LiveCell.next = function(neighborsCount)
             type = "DEAD"
         }
     else
-        return {
-            type = "LIVE"
-        }
+        return self
     end
 end
 
