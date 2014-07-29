@@ -2,6 +2,8 @@ local DeadCell = {
     type = "DEAD"
 }
 
+local LiveCell = require("scripts.LiveCell")
+
 function DeadCell:new()
     o = {}
     setmetatable(o, self)
@@ -11,9 +13,7 @@ end
 
 function DeadCell:next(neightborsCount)
    if neightborsCount == 3 then
-       return {
-           type = "LIVE"
-       }
+       return LiveCell:new()
     end
     return self
 end
