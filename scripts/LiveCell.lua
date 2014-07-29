@@ -1,6 +1,9 @@
 local LiveCell = {
     type = "LIVE"
 }
+package.loaded[...] = LiveCell
+
+local DeadCell = require("scripts.DeadCell")
 
 function LiveCell:new()
     o = {}
@@ -11,13 +14,9 @@ end
 
 function LiveCell:next(neighborsCount)
     if neighborsCount < 2 then
-        return {
-            type = "DEAD"
-        }
+        return DeadCell:new()
     elseif neighborsCount > 3 then
-        return {
-            type = "DEAD"
-        }
+        return DeadCell:new()
     else
         return self
     end

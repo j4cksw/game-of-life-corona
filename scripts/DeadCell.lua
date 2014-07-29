@@ -1,6 +1,7 @@
 local DeadCell = {
     type = "DEAD"
 }
+package.loaded[...] = DeadCell
 
 local LiveCell = require("scripts.LiveCell")
 
