@@ -1,6 +1,8 @@
-local boardRenderer = require("script.BoardRenderer")
-local LiveCell = require("script.LiveCell")
+display.setStatusBar( display.HiddenStatusBar )
 
-local initTable = { LiveCell:new() }
+local boardRenderer = require("scripts.BoardRenderer")
+local LiveCell = require("scripts.LiveCell")
+
+local initTable = { LiveCell:new(), LiveCell:new() }
 
 boardRenderer.renderFromTable(initTable)
