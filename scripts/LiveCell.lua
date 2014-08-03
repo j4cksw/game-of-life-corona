@@ -13,13 +13,10 @@ function LiveCell:new()
 end
 
 function LiveCell:next(neighborsCount)
-    if neighborsCount < 2 then
+    if neighborsCount < 2 or neighborsCount > 3 then
         return DeadCell:new()
-    elseif neighborsCount > 3 then
-        return DeadCell:new()
-    else
-        return self
     end
+    return self
 end
 
 return LiveCell
