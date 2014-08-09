@@ -7,7 +7,7 @@ describe("BoardIterator", function()
         local cellTable = {
             { LiveCell:new() }
         }
-        spy.on(cellTable[1][1], "next")
+        stub(cellTable[1][1], "next")
 
         BoardIterator.next(cellTable)
 
