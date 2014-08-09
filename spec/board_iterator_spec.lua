@@ -38,4 +38,24 @@ describe("BoardIterator", function()
 
         assert.spy(cellTable[1][1].next).was_called_with(cellTable[1][1], fakeLiveNeighborsCount)
     end)
+
+    it("should add next cell result to generate table", function()
+        local fakeNextCell = { "xxx" }
+        local cellTable = {
+            {
+                {
+                    next = function()
+                        return fakeNextCell
+                    end
+                }
+            }
+        }
+
+        local result = BoardIterator.next(cellTable)
+
+        assert.are.same(result, {
+            { fakeNextCell }
+        })
+
+    end)
 end)
