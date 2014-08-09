@@ -1,8 +1,18 @@
 display.setStatusBar( display.HiddenStatusBar )
 
-local boardRenderer = require("scripts.BoardRenderer")
+local BoardRenderer = require("scripts.BoardRenderer")
 local LiveCell = require("scripts.LiveCell")
+local DeadCell = require("scripts.DeadCell")
 
-local initTable = { LiveCell:new(), LiveCell:new() }
+local cellTable = {
+    { LiveCell:new(), LiveCell:new(), LiveCell:new() },
+    { LiveCell:new(), DeadCell:new(), LiveCell:new() },
+    { LiveCell:new(), LiveCell:new(), LiveCell:new() },
+}
 
-boardRenderer.renderFromTable(initTable)
+BoardRenderer.renderFromTable(cellTable)
+
+Runtime:addEventListener("tap", function()
+    --cellTable = BoardItertor.next(cellTable)
+    --BoardRenderer.renderFromTable(cellTable)
+end)
