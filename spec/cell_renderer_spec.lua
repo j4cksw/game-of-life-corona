@@ -32,7 +32,7 @@ describe("CellRenderer", function()
 
         CellRenderer.render(sampleLiveCell, 32, 32, 64, 64)
 
-        assert.spy(fakeRect.setFillColor).was_called_with(fakeRect, 1, 1, 1)
+        assert.spy(fakeRect.setFillColor).was_called_with(fakeRect, 0, 1, 0)
     end)
 
 end)
