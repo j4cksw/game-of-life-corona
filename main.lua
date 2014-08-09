@@ -6,9 +6,9 @@ local DeadCell = require("scripts.DeadCell")
 local BoardIterator = require("scripts.BoardIterator")
 
 local cellTable = {
-    { LiveCell:new(), LiveCell:new(), LiveCell:new() },
-    { LiveCell:new(), DeadCell:new(), LiveCell:new() },
-    { LiveCell:new(), LiveCell:new(), LiveCell:new() },
+    { LiveCell:new(), LiveCell:new(), LiveCell:new(), LiveCell:new() },
+    { LiveCell:new(), DeadCell:new(), DeadCell:new(), LiveCell:new() },
+    { LiveCell:new(), LiveCell:new(), LiveCell:new(), LiveCell:new() },
 }
 
 BoardRenderer.renderFromTable(cellTable)
