@@ -10,6 +10,7 @@ function LiveNeighborCounter.countNeighborOfCell(cellTable, x, y)
         { y = y+1, x = x+1 },
         { y = y+1, x = x-1 },
         { y = y-1, x = x },
+        { y = y-1, x = x-1 },
     }
 
     for index, entry in pairs(neighborPoints) do
