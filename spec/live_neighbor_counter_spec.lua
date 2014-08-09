@@ -13,7 +13,7 @@ describe("LiveNeighborCounter", function()
         assert.are.equal(0, result)
     end)
 
-    it("should return number of live cell of cell at given point", function()
+    it("should count the right live cell of cell at given point", function()
         local cellTable = {
             { DeadCell:new(), LiveCell:new() }
         }
@@ -22,6 +22,17 @@ describe("LiveNeighborCounter", function()
 
         assert.are.equal(1, result)
     end)
+
+    it("should count the right live cell of cell at given point", function()
+        local cellTable = {
+            { LiveCell:new(), DeadCell:new() }
+        }
+
+        local result = LiveNeighborCounter.countNeighborOfCell(cellTable, 2, 1)
+
+        assert.are.equal(1, result)
+    end)
+
 
     it("should return number of live cell of cell at given point", function()
         local cellTable = {

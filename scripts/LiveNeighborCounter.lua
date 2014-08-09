@@ -3,11 +3,18 @@ local LiveNeighborCounter = {}
 function LiveNeighborCounter.countNeighborOfCell(cellTable, x, y)
     local result = 0
 
-    pcall(function()
-        result = result + cellTable[y][x+1].value
-        result = result + cellTable[y+1][x].value
-        result = result + cellTable[y+1][x+1].value
-    end)
+    local neighborPoints = {
+        { y = y, x = x-1 },
+        { y = y, x = x+1 },
+        { y = y+1, x = x },
+        { y = y+1, x = x+1 }
+    }
+
+    for index, entry in pairs(neighborPoints) do
+        pcall(function()
+            result = result + cellTable[entry.y][entry.x].value
+        end)
+    end
 
     return result
 end
