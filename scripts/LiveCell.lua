@@ -20,8 +20,4 @@ function LiveCell:next(neighborsCount)
     return self
 end
 
-function LiveCell:getColor()
-    return self.color
-end
-
 return LiveCell
