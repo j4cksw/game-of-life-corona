@@ -1,5 +1,6 @@
 local LiveCell = {
-    type = "LIVE"
+    type = "LIVE",
+    color = {1,1,1}
 }
 package.loaded[...] = LiveCell
 
@@ -17,6 +18,10 @@ function LiveCell:next(neighborsCount)
         return DeadCell:new()
     end
     return self
+end
+
+function LiveCell:getColor()
+    return self.color
 end
 
 return LiveCell

@@ -44,12 +44,4 @@ describe("BoardRenderer", function()
         assert.spy(display.newRect).was_called_with(96, 32, 64, 64)
     end)
 
-
-    it("should fill live cell with white color", function()
-        local initCells = { LiveCell:new() }
-
-        boardRenderer.renderFromTable(initCells)
-
-        assert.spy(fakeRect.setFillColor).was_called_with(fakeRect, 1, 1, 1)
-    end)
 end)
