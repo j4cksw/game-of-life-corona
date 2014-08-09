@@ -55,4 +55,15 @@ describe("LiveNeighborCounter", function()
 
         assert.are.equal(3, result)
     end)
+
+    it("should count the top live cell of cell at given point", function()
+        local cellTable = {
+            { LiveCell:new() },
+            { DeadCell:new() }
+        }
+
+        local result = LiveNeighborCounter.countNeighborOfCell(cellTable, 1, 2)
+
+        assert.are.equal(1, result)
+    end)
 end)
