@@ -1,6 +1,6 @@
 local DeadCell = {
     type = "DEAD",
-    color = {0,0,0}
+    color = {1,1,1}
 }
 package.loaded[...] = DeadCell
 
