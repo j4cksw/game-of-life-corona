@@ -8,14 +8,25 @@ local cellSize = {
 }
 
 local initX = 32
+local initY = 32
 
 local function calcualteXByIndex(index)
     return initX + cellSize.width * (index -1)
 end
 
+local function calculateYByIndex(index)
+    return initY + cellSize.height * (index -1)
+end
+
 function BoardRenderer.renderFromTable(initCells)
-    for index, cell in pairs(initCells) do
-        CellRenderer.render(cell, calcualteXByIndex(index), 32, cellSize.width, cellSize.height)
+    for rowIndex, row in pairs(initCells) do
+        for cellIndex, cell in pairs(row) do
+            CellRenderer.render(cell,
+                calcualteXByIndex(cellIndex),
+                calculateYByIndex(rowIndex), 
+                cellSize.width,
+                cellSize.height)
+        end
     end
 end
 
