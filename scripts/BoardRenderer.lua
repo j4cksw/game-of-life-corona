@@ -1,6 +1,7 @@
 local BoardRenderer = {}
 
-local CellRenderer
+local CellRenderer = require("scripts.CellRenderer")
+
 function BoardRenderer.renderFromTable(initCells)
     local initX = 32
     for index, cell in pairs(initCells) do
