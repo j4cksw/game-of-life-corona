@@ -1,6 +1,7 @@
 local LiveCell = {
     type = "LIVE",
-    color = {0,1,0}
+    color = {0,1,0},
+    value = 1
 }
 package.loaded[...] = LiveCell
 
